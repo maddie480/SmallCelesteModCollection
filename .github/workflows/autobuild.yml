@@ -46,6 +46,24 @@ jobs:
         zip -qq -r $ZIPNAME everest.yaml bin/Release/net452
         curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
 
+    - name: DisplayMessageCommand - Restore with .NET Core
+      run: cd DisplayMessageCommand && dotnet restore
+
+    - name: DisplayMessageCommand - Build using Mono
+      run: cd DisplayMessageCommand && msbuild *.sln "/p:Configuration=Release"
+
+    - name: DisplayMessageCommand - Publish release
+      if: github.ref == 'refs/heads/main'
+      env:
+        ZIPNAME: DisplayMessageCommand
+        GITHUB_SHA: ${{ github.sha }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        cd $ZIPNAME
+        ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
+        zip -qq -r $ZIPNAME everest.yaml bin/Release/net452 Graphics
+        curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
+
     - name: EventMode - Restore with .NET Core
       run: cd EventMode && dotnet restore
 
