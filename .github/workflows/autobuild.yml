@@ -28,6 +28,24 @@ jobs:
       with:
         dotnet-version: 2.2.108
 
+    - name: AroxonBerry - Restore with .NET Core
+      run: cd AroxonBerry && dotnet restore
+
+    - name: AroxonBerry - Build using Mono
+      run: cd AroxonBerry && msbuild *.sln "/p:Configuration=Release"
+
+    - name: AroxonBerry - Publish release
+      if: github.ref == 'refs/heads/main'
+      env:
+        ZIPNAME: AroxonBerry
+        GITHUB_SHA: ${{ github.sha }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        cd $ZIPNAME
+        ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
+        zip -qq -r $ZIPNAME everest.yaml bin/Release/net452 Ahorn
+        curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
+
     - name: BloomCommand - Restore with .NET Core
       run: cd BloomCommand && dotnet restore
 

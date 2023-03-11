@@ -3,6 +3,7 @@
 A repository collecting all my smaller or map-specific code mods for Celeste.
 
 Here is the list:
+- Aroxon Berry - a "no-midair-jump" winged strawberry, requires defining `ghost_aroxon_berry` and `aroxon_berry` in Sprites.xml to give it graphics
 - [Bloom Command](https://gamebanana.com/mods/53703) - a mod that adds a `bloom` console command similar to the vanilla `lighting` command
 - [Display Message Command](https://gamebanana.com/mods/421935) - a mod that provides a simple command that displays arbitrary text on-screen, in the same style as the strawberry counter
 - [Event Mode](https://gamebanana.com/mods/53674) - a tiny mod that puts Celeste in a hidden "event mode"
