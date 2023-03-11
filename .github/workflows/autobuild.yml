@@ -63,3 +63,21 @@ jobs:
         ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
         zip -qq -r $ZIPNAME everest.yaml bin/Release/net452 Graphics
         curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
+
+    - name: IronSmelteryCampaign - Restore with .NET Core
+      run: cd IronSmelteryCampaign && dotnet restore
+
+    - name: IronSmelteryCampaign - Build using Mono
+      run: cd IronSmelteryCampaign && msbuild *.sln "/p:Configuration=Release"
+
+    - name: IronSmelteryCampaign - Publish release
+      if: github.ref == 'refs/heads/main'
+      env:
+        ZIPNAME: IronSmelteryCampaign
+        GITHUB_SHA: ${{ github.sha }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        cd $ZIPNAME
+        ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
+        zip -qq -r $ZIPNAME everest.yaml bin/Release/net452 Ahorn Graphics
+        curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
