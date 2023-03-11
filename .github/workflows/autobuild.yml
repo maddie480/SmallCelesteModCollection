@@ -28,6 +28,24 @@ jobs:
       with:
         dotnet-version: 2.2.108
 
+    - name: EventMode - Restore with .NET Core
+      run: cd EventMode && dotnet restore
+
+    - name: FullClearStamp - Build using Mono
+      run: cd EventMode && msbuild *.sln "/p:Configuration=Release"
+
+    - name: EventMode - Publish release
+      if: github.ref == 'refs/heads/main'
+      env:
+        ZIPNAME: EventMode
+        GITHUB_SHA: ${{ github.sha }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        cd $ZIPNAME
+        ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
+        zip -qq -r $ZIPNAME everest.yaml bin/Release/net452
+        curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
+
     - name: FullClearStamp - Restore with .NET Core
       run: cd FullClearStamp && dotnet restore
 
