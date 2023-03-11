@@ -1,0 +1,6 @@
+﻿- Name: FullClearStamp
+  Version: 2.0.1
+  DLL: bin/Release/net452/FullClearFlag.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.3761.0
