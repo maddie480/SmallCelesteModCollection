@@ -1,0 +1,1 @@
+modname_SafeRespawnCrumble= Safe Respawn Crumble & Crystal Bomb Detonator

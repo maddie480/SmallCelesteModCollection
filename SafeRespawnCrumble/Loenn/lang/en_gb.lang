@@ -1,0 +1,4 @@
+# Safe Respawn Crumble
+mods.SafeRespawnCrumble.name=Standalone Mod
+entities.SafeRespawnCrumble/SafeRespawnCrumble.placements.name.default=Safe Respawn Crumble
+entities.SafeRespawnCrumble/SafeRespawnCrumble.attributes.description.hasOutline=Whether an outline shows up where the crumble block is when it is invisible.
