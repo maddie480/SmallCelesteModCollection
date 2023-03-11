@@ -46,6 +46,24 @@ jobs:
         zip -qq -r $ZIPNAME everest.yaml bin/Release/net452 Ahorn
         curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
 
+    - name: BadelineHairDye - Restore with .NET Core
+      run: cd BadelineHairDye && dotnet restore
+
+    - name: BadelineHairDye - Build using Mono
+      run: cd BadelineHairDye && msbuild *.sln "/p:Configuration=Release"
+
+    - name: BadelineHairDye - Publish release
+      if: github.ref == 'refs/heads/main'
+      env:
+        ZIPNAME: BadelineHairDye
+        GITHUB_SHA: ${{ github.sha }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        cd $ZIPNAME
+        ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
+        zip -qq -r $ZIPNAME everest.yaml bin/Release/net452
+        curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
+
     - name: BloomCommand - Restore with .NET Core
       run: cd BloomCommand && dotnet restore
 
