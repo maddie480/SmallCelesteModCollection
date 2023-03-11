@@ -226,6 +226,24 @@ jobs:
         zip -qq -r $ZIPNAME everest.yaml bin/Release/net452 Ahorn Graphics
         curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
 
+    - name: MadelineBrownHair - Restore with .NET Core
+      run: cd MadelineBrownHair && dotnet restore
+
+    - name: MadelineBrownHair - Build using Mono
+      run: cd MadelineBrownHair && msbuild *.sln "/p:Configuration=Release"
+
+    - name: MadelineBrownHair - Publish release
+      if: github.ref == 'refs/heads/main'
+      env:
+        ZIPNAME: MadelineBrownHair
+        GITHUB_SHA: ${{ github.sha }}
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      run: |
+        cd $ZIPNAME
+        ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
+        zip -qq -r $ZIPNAME everest.yaml bin/Release/net452
+        curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
+
     - name: SafeRespawnCrumble - Restore with .NET Core
       run: cd SafeRespawnCrumble && dotnet restore
 

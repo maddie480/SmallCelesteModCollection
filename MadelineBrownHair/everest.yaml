@@ -1,0 +1,6 @@
+﻿- Name: MadelineBrownHair
+  Version: 0.0.1
+  DLL: bin/Release/net452/MadelineBrownHair.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.3761.0
