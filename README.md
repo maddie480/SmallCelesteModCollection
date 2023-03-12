@@ -15,4 +15,5 @@ Here is the list:
 - [Golden Bird in Journal](https://gamebanana.com/mods/53662) - a mod turning the bird in your journal golden when you full clear Farewell
 - [IronSmeltery's Campaign](https://gamebanana.com/mods/150697) - various custom entities made for IronSmeltery's campaign
 - Madeline Brown Hair - just... colors Madeline's one-dash hair brown
+- Magi Customizable Chapter 1 Ending ([Sunset Mountain](https://gamebanana.com/mods/150752)) - a trigger for the bonfire cutscene at the end of Chapter 1, with customizable dialogue
 - [Safe Respawn Crumble](https://gamebanana.com/mods/53746) - a helper containing a single entity (Safe Respawn Crumble) extracted from Spring Collab
