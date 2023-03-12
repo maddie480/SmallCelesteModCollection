@@ -17,4 +17,5 @@ Here is the list:
 - Madeline Brown Hair - just... colors Madeline's one-dash hair brown
 - Magi Customizable Chapter 1 Ending ([Sunset Mountain](https://gamebanana.com/mods/150752)) - a trigger for the bonfire cutscene at the end of Chapter 1, with customizable dialogue
 - Nolz Custom Hair Color - yet another mod that changes Madeline's hair colors
+- Reverse Fancy Text ([Hebrew Translation](https://gamebanana.com/mods/391870)) - a mod that modifies dialogue text and memorial text to be revealed from right to left (kind of)
 - [Safe Respawn Crumble](https://gamebanana.com/mods/53746) - a helper containing a single entity (Safe Respawn Crumble) extracted from Spring Collab
