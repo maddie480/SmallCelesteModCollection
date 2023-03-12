@@ -34,7 +34,7 @@ jobs:
         GITHUB_SHA: ${{ github.sha }}
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       run: |
-        for ZIPNAME in AroxonBerry BadelineHairDye BloomCommand CabobBerrySwap DisplayMessageCommand DonkerBerrySwap DonkerJellies EventMode FullClearStamp GoldenBirdInJournal IronSmelteryCampaign MadelineBrownHair MagiCustomizableChapter1Ending NolzCustomHairColor ReverseFancyText SafeRespawnCrumble SeekerCH6Cutscene
+        for ZIPNAME in AroxonBerry BadelineHairDye BloomCommand CabobBerrySwap DisplayMessageCommand DonkerBerrySwap DonkerJellies EventMode FullClearStamp GoldenBirdInJournal IronSmelteryCampaign MadelineBrownHair MagiCustomizableChapter1Ending NolzCustomHairColor ReverseFancyText SafeRespawnCrumble SeekerCH6Cutscene ShirbSleepTeleport
         do
           cd $ZIPNAME
           dotnet restore
