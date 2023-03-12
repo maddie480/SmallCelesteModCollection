@@ -9,11 +9,11 @@ Here is the list:
 - Cabob Berry Swap ([Frozen Heights](https://gamebanana.com/mods/150681)) - changes the GUI strawberry icon (now possible with [max480's Helping Hand](https://github.com/EverestAPI/ModResources/wiki/Helping-Hand-Extra-Features#reskinning-strawberries-in-menus))
 - [Display Message Command](https://gamebanana.com/mods/421935) - a mod that provides a simple command that displays arbitrary text on-screen, in the same style as the strawberry counter
 - Donker Berry Swap ([Solaris](https://gamebanana.com/mods/150559)) - same as the above but for another map :sweat_smile:
-- Donker Jellies - A small map-specific helper bringing a "Frozen Jelly" and a "Reverse Jelly"
 - [Event Mode](https://gamebanana.com/mods/53674) - a tiny mod that puts Celeste in a hidden "event mode"
 - [Full Clear Stamp](https://gamebanana.com/mods/34279) - a mod adding a stamp on a save file for full-clearing a campaign
 - [Golden Bird in Journal](https://gamebanana.com/mods/53662) - a mod turning the bird in your journal golden when you full clear Farewell
 - [IronSmeltery's Campaign](https://gamebanana.com/mods/150697) - various custom entities made for IronSmeltery's campaign
+- Life On The Moon - entities made for a map by Mün that did not end up coming out, including curved boosters :sweat_smile:
 - Madeline Brown Hair - just... colors Madeline's one-dash hair brown
 - Magi Customizable Chapter 1 Ending ([Sunset Mountain](https://gamebanana.com/mods/150752)) - a trigger for the bonfire cutscene at the end of Chapter 1, with customizable dialogue
 - Nolz Custom Hair Color - yet another mod that changes Madeline's hair colors

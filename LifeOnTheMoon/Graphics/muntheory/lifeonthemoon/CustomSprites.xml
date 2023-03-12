@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sprites>
+    <spaceBooster path="objects/muntheory/lifeonthemoon/spacebooster/" start="loop">
+        <Justify x="0.5" y="0.5"/>
+        <Anim id="appear" path="" delay="0.08" frames="26-34" goto="loop"/>
+        <Loop id="loop" path="" delay="0.1" frames="0-4"/>
+        <Loop id="inside" path="" delay="0.1" frames="5-8"/>
+        <Loop id="spin" path="" delay="0.06" frames="18-25"/>
+        <Anim id="pop" path="" delay="0.08" frames="9-17"/>
+    </spaceBooster>
+
+    <spaceBoosterStaying path="objects/muntheory/lifeonthemoon/spacebooster/" start="loop">
+        <Justify x="0.5" y="0.5"/>
+        <Anim id="appear" path="dash" delay="0.08" frames="26-34" goto="loop"/>
+        <Loop id="loop" path="dash" delay="0.1" frames="0-4"/>
+        <Loop id="inside" path="dash" delay="0.1" frames="5-8"/>
+        <Loop id="spin" path="dash" delay="0.06" frames="18-25"/>
+        <Anim id="pop" path="dash" delay="0.08" frames="9-17"/>
+    </spaceBoosterStaying>
+
+    <spaceBoosterContinuous path="objects/muntheory/lifeonthemoon/spacebooster/" start="loop">
+        <Justify x="0.5" y="0.5"/>
+        <Anim id="appear" path="continuous" delay="0.08" frames="26-34" goto="loop"/>
+        <Loop id="loop" path="continuous" delay="0.1" frames="0-4"/>
+        <Loop id="inside" path="continuous" delay="0.1" frames="5-8"/>
+        <Loop id="spin" path="continuous" delay="0.06" frames="18-25"/>
+        <Anim id="pop" path="continuous" delay="0.08" frames="9-17"/>
+    </spaceBoosterContinuous>
+
+    <key path="collectables/muntheory/lifeonthemoon/sessionkey/" start="idle">
+        <Justify x=".5" y=".5" />
+        <Loop id="idle" path="idle" delay="0.1" frames="0-13"/>
+        <Anim id="enter" path="enter" delay="0.1"/>
+    </key>
+</Sprites>

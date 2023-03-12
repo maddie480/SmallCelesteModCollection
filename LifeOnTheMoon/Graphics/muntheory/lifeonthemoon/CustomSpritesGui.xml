@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Sprites>
+    <customHeart path="collectables/muntheory/lifeonthemoon/heartgem/0/" start="idle">
+        <Center />
+        <Loop id="idle" path="spin" frames="0" />
+        <Loop id="spin" path="spin" frames="0*10,1-10" delay="0.08"/>
+        <Loop id="fastspin" path="spin"  frames="1-10" delay="0.08"/>
+    </customHeart>
+</Sprites>
