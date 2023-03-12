@@ -19,3 +19,4 @@ Here is the list:
 - Nolz Custom Hair Color - yet another mod that changes Madeline's hair colors
 - Reverse Fancy Text ([Hebrew Translation](https://gamebanana.com/mods/391870)) - a mod that modifies dialogue text and memorial text to be revealed from right to left (kind of)
 - [Safe Respawn Crumble](https://gamebanana.com/mods/53746) - a helper containing a single entity (Safe Respawn Crumble) extracted from Spring Collab
+- Seeker CH6 Cutscene - a cutscene triggered with an event trigger with event = `seekerinthedark_ch6_ending`, that looks like the "level up" cutscene at the end of chapter 6, except Badeline vanishes instead of giving Madeline a second dash
