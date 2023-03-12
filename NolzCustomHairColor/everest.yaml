@@ -1,0 +1,6 @@
+- Name: NolzCustomHairColor
+  Version: 0.0.1
+  DLL: bin/Release/net452/NolzCustomHairColor.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.3761.0

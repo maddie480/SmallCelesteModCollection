@@ -1,6 +1,6 @@
 - Name: MagiCustomizableChapter1Ending
   Version: 0.0.1
-  DLL: bin/Release/net452/MadelineBrownHair.dll
+  DLL: bin/Release/net452/MagiCustomizableChapter1Ending.dll
   Dependencies:
     - Name: Everest
       Version: 1.3761.0
