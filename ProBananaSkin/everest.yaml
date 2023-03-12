@@ -1,0 +1,6 @@
+- Name: ProBananaSkin
+  Version: 0.0.1
+  DLL: bin/Release/net452/ProBananaSkin.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.3761.0
