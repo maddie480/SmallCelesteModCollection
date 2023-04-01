@@ -15,6 +15,8 @@ namespace Celeste.Mod.CrabbingAntidote {
         private void onSaveDataAfterInitialize(On.Celeste.SaveData.orig_AfterInitialize orig, SaveData self) {
             orig(self);
 
+            bool saveFileWasCrabbed = false;
+
             foreach (AreaStats areaStats in self.Areas) {
                 if (areaStats.Modes.Length < 3) {
                     AreaModeStats[] decrabbedStats = new AreaModeStats[3];
@@ -27,7 +29,13 @@ namespace Celeste.Mod.CrabbingAntidote {
                         decrabbedStats[i] = new AreaModeStats();
                     }
                     areaStats.Modes = decrabbedStats;
+                    saveFileWasCrabbed = true;
                 }
+            }
+
+            if (saveFileWasCrabbed) {
+                UserIO.Save<SaveData>(SaveData.GetFilename(self.FileSlot), UserIO.Serialize<SaveData>(self));
+                Logger.Log(LogLevel.Warn, "CrabbingAntidote", "Decrabbed file " + (self.FileSlot + 1) + " was saved");
             }
         }
     }
