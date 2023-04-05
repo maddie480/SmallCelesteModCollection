@@ -5,7 +5,6 @@ using System;
 
 namespace Celeste.Mod.ProBananaSkin {
     // This code adds a toggle and sets up colors for the Pro Banana skin.
-    // Code by max480
     public class ProBananaSkinModule : EverestModule {
         public static ProBananaSkinModule Instance;
         public override Type SettingsType => typeof(ProBananaSkinSettings);
