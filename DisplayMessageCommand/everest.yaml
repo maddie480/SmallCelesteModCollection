@@ -1,5 +1,5 @@
 - Name: DisplayMessageCommand
-  Version: 1.0.0
+  Version: 1.0.1
   DLL: bin/Release/net452/DisplayMessageCommand.dll
   Dependencies:
     - Name: Everest

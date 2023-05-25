@@ -13,6 +13,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
         private readonly float textWidth;
         private readonly float verticalScale;
         private readonly bool isLeft;
+        private readonly Color fillColor;
 
         private readonly float xIn;
         private readonly float xOut;
@@ -24,6 +25,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
             this.text = text;
             this.scale = scale;
             this.isLeft = isLeft;
+            this.fillColor = Color.White;
 
             textDisplays[id] = this;
 
@@ -41,6 +43,10 @@ namespace Celeste.Mod.DisplayMessageCommand {
             Add(tween);
         }
 
+        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, Color fillColor) : this(id, text, scale, y, isLeft) {
+            this.fillColor = fillColor;
+        }
+
         public override void Render() {
             base.Render();
 
@@ -49,10 +55,10 @@ namespace Celeste.Mod.DisplayMessageCommand {
                     38f * (1 - scale) - 38f * (verticalScale - 1) * scale
                 ),
                 Vector2.Zero,
-                Color.White,
+                fillColor,
                 new Vector2(isLeft ? 1 : -1, verticalScale) * scale);
 
-            ActiveFont.DrawOutline(text, Position + new Vector2(44, 38), new Vector2(0, 1), Vector2.One * scale, Color.White, 2f, Color.Black);
+            ActiveFont.DrawOutline(text, Position + new Vector2(44, 38), new Vector2(0, 1), Vector2.One * scale, fillColor, 2f, Color.Black);
         }
 
         public override void Removed(Scene scene) {
