@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Monocle;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Celeste.Mod.DisplayMessageCommand {
@@ -20,7 +21,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
 
         private MTexture bg = GFX.Gui["DisplayMessageCommand/extendedStrawberryCountBG"];
 
-        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft) {
+        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, float duration = 0f) {
             this.id = id;
             this.text = text;
             this.scale = scale;
@@ -41,10 +42,19 @@ namespace Celeste.Mod.DisplayMessageCommand {
             Tween tween = Tween.Create(Tween.TweenMode.Oneshot, Ease.SineOut, 0.5f, true);
             tween.OnUpdate = t => Position.X = Calc.ClampedMap(t.Eased, 0, 1, xOut, xIn);
             Add(tween);
+
+            if(duration > 0) {
+                Add(new Coroutine(hideRoutine(duration)));
+            }
         }
 
-        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, Color fillColor) : this(id, text, scale, y, isLeft) {
+        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, float duration, Color fillColor) : this(id, text, scale, y, isLeft, duration) {
             this.fillColor = fillColor;
+        }
+
+        private IEnumerator hideRoutine(float delay) {
+            yield return delay;
+            transitionOut();
         }
 
         public override void Render() {
@@ -82,12 +92,12 @@ namespace Celeste.Mod.DisplayMessageCommand {
         }
 
         [Command("display_message", "Displays a message on a screen border")]
-        private static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text) {
+        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration) {
             if (textDisplays.TryGetValue(id, out TextDisplayInLevel existingMessage)) {
                 existingMessage.transitionOut();
             }
 
-            Engine.Scene.Add(new TextDisplayInLevel(id, text.Replace("\\n", "\n"), scale, y, isLeft));
+            Engine.Scene.Add(new TextDisplayInLevel(id, text.Replace("\\n", "\n"), scale, y, isLeft, duration));
         }
 
         [Command("hide_message", "Hide a previously displayed message")]

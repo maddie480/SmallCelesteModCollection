@@ -1,0 +1,7 @@
+triggers.DisplayMessageCommand/TextDisplayTrigger.placements.name.normal=Display Text
+triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.textID=The ID of the text display. Should be unique. Use the same one to replace another.
+triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.message=The message to display. Use backslash n for linebreaks.
+triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.scale=The size of the displayed text.
+triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.yPosition=The Y position of the text. 1080 is the bottom of the screen.
+triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.isLeft=Whether the text should be displayed on the left or the right side.
+triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.duration=After how many seconds the text should be removed.\nUse 0 to let it stay indefinitely.
