@@ -92,7 +92,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
         }
 
         [Command("display_message", "Displays a message on a screen border")]
-        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration) {
+        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration = 0f) {
             if (textDisplays.TryGetValue(id, out TextDisplayInLevel existingMessage)) {
                 existingMessage.transitionOut();
             }
