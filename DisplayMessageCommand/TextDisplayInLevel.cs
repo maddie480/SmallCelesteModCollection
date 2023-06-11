@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Monocle;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -43,7 +42,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
             tween.OnUpdate = t => Position.X = Calc.ClampedMap(t.Eased, 0, 1, xOut, xIn);
             Add(tween);
 
-            if(duration > 0) {
+            if (duration > 0) {
                 Add(new Coroutine(hideRoutine(duration)));
             }
         }
@@ -91,13 +90,17 @@ namespace Celeste.Mod.DisplayMessageCommand {
             Add(tween);
         }
 
-        [Command("display_message", "Displays a message on a screen border")]
-        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration = 0f) {
+        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration) {
             if (textDisplays.TryGetValue(id, out TextDisplayInLevel existingMessage)) {
                 existingMessage.transitionOut();
             }
 
             Engine.Scene.Add(new TextDisplayInLevel(id, text.Replace("\\n", "\n"), scale, y, isLeft, duration));
+        }
+
+        [Command("display_message", "Displays a message on a screen border")]
+        private static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text) {
+            displayMessageCommand(id, scale, y, isLeft, text, 0f);
         }
 
         [Command("hide_message", "Hide a previously displayed message")]

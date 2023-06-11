@@ -1,0 +1,8 @@
+﻿# Display Text Trigger
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.textID=The ID of the text display. Should be unique. Use the same one to replace another.
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.message=The message to display. Use backslash n for linebreaks.
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.scale=The size of the displayed text.
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.yPosition=The Y position of the text. 1080 is the bottom of the screen.
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.isLeft=Whether the text should be displayed on the left or the right side.
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.duration=After how many seconds the text should be removed.\nUse 0 to let it stay indefinitely.
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.onlyOnce=Whether the text should only be displayed once, until the player dies or changes rooms.
