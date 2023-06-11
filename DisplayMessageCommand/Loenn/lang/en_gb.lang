@@ -9,3 +9,4 @@ triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.yPositi
 triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.isLeft=Whether the text should be displayed on the left or the right side.
 triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.duration=After how many seconds the text should be removed.\nUse 0 to let it stay indefinitely.
 triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.onlyOnce=Whether the text should only be displayed once, until the player dies or changes rooms.
+triggers.DisplayMessageCommand/TextDisplayTrigger.attributes.description.fillColor=The color of the displayed text.

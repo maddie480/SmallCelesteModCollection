@@ -11,7 +11,14 @@ text_trigger.placements = {
         yPosition = 500.0,
         isLeft = false,
         duration = 0.0,
-        onlyOnce = true
+        onlyOnce = true,
+        fillColor = "FFFFFF"
+    }
+}
+
+text_trigger.fieldInformation = {
+    fillColor = {
+        fieldType = "color"
     }
 }
 

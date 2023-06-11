@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Monocle;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,12 +20,12 @@ namespace Celeste.Mod.DisplayMessageCommand {
 
         private MTexture bg = GFX.Gui["DisplayMessageCommand/extendedStrawberryCountBG"];
 
-        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, float duration = 0f) {
+        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, float duration, Color fillColor) {
             this.id = id;
             this.text = text;
             this.scale = scale;
             this.isLeft = isLeft;
-            this.fillColor = Color.White;
+            this.fillColor = fillColor;
 
             textDisplays[id] = this;
 
@@ -45,10 +45,6 @@ namespace Celeste.Mod.DisplayMessageCommand {
             if (duration > 0) {
                 Add(new Coroutine(hideRoutine(duration)));
             }
-        }
-
-        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, float duration, Color fillColor) : this(id, text, scale, y, isLeft, duration) {
-            this.fillColor = fillColor;
         }
 
         private IEnumerator hideRoutine(float delay) {
@@ -90,17 +86,17 @@ namespace Celeste.Mod.DisplayMessageCommand {
             Add(tween);
         }
 
-        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration) {
+        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration, Color fillColor) {
             if (textDisplays.TryGetValue(id, out TextDisplayInLevel existingMessage)) {
                 existingMessage.transitionOut();
             }
 
-            Engine.Scene.Add(new TextDisplayInLevel(id, text.Replace("\\n", "\n"), scale, y, isLeft, duration));
+            Engine.Scene.Add(new TextDisplayInLevel(id, text.Replace("\\n", "\n"), scale, y, isLeft, duration, fillColor));
         }
 
         [Command("display_message", "Displays a message on a screen border")]
         private static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text) {
-            displayMessageCommand(id, scale, y, isLeft, text, 0f);
+            displayMessageCommand(id, scale, y, isLeft, text, 0f, Color.White);
         }
 
         [Command("hide_message", "Hide a previously displayed message")]
