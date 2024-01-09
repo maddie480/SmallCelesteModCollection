@@ -1,0 +1,6 @@
+﻿- Name: ACelsiusFixer
+  Version: 0.0.1
+  DLL: bin/Release/net452/CelsiusFixer.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.4465.0
