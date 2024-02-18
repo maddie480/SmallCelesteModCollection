@@ -22,7 +22,7 @@ Here is the list:
 - Magi Customizable Chapter 1 Ending ([Sunset Mountain](https://gamebanana.com/mods/150752)) - a trigger for the bonfire cutscene at the end of Chapter 1, with customizable dialogue
 - Nolz Custom Hair Color - yet another mod that changes Madeline's hair colors
 - [Pro Banana Skin](https://gamebanana.com/mods/251806) - a mod that adds a toggle for the skin and implements color-grade-based dash colors... having a specific mod for that (and any of the 5 hair color mods in here) was made unnecessary by [Skin Mod Helper](https://gamebanana.com/mods/166543), though :stuck_out_tongue:
-- Reverse Fancy Text ([Hebrew Translation](https://gamebanana.com/mods/391870)) - a mod that modifies dialogue text and memorial text to be revealed from right to left (kind of)
+- Reverse Fancy Text ([Hebrew Translation](https://gamebanana.com/mods/391870), [Celeste Arabic](https://gamebanana.com/mods/495421)) - a mod that modifies dialogue text and memorial text to be revealed from right to left (kind of)
 - [Safe Respawn Crumble](https://gamebanana.com/mods/53746) - a helper containing a single entity (Safe Respawn Crumble) extracted from Spring Collab
 - Seeker CH6 Cutscene - a cutscene triggered with an event trigger with event = `seekerinthedark_ch6_ending`, that looks like the "level up" cutscene at the end of chapter 6, except Badeline vanishes instead of giving Madeline a second dash
 - Shirb Sleep Teleport - exposes a small `SleepTeleportTo` method, that allows teleporting with Lua Cutscenes with the "wake up" animation (which was useful back when Lua Cutscenes didn't support enums that well :sweat_smile:)
