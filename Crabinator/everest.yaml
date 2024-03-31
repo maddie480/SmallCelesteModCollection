@@ -1,0 +1,6 @@
+﻿- Name: Crabinator
+  Version: 1.0.0
+  DLL: bin/Release/net452/Crabinator.dll
+  Dependencies:
+    - Name: Everest
+      Version: 1.4703.0

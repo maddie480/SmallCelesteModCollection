@@ -6,7 +6,8 @@ Here is the list:
 - Aroxon Berry - a "no-midair-jump" winged strawberry, requires defining `ghost_aroxon_berry` and `aroxon_berry` in Sprites.xml to give it graphics
 - Badeline Hair Dye ([Reverse Card skin mod](https://gamebanana.com/mods/251787)) - gives Madeline's hair color to Badeline
 - [Bloom Command](https://gamebanana.com/mods/53703) - a mod that adds a `bloom` console command similar to the vanilla `lighting` command
-- Crabbing Antidote - a small mod that aims to fill missing C-side slots in save files to prevent file select from crashing, after a failed "Crab Sides" April Fools mod crabbed them :crab:
+- [Crabbing Antidote](https://gamebanana.com/mods/480169) - a small mod that aims to fill missing C-side slots in save files to prevent file select from crashing, after a failed "Crab Sides" April Fools 2023 mod crabbed them :crab:
+- Crabinator - A mod that crabs your game by replacing all textures with :crab:, made for April Fools 2024
 - Cabob Berry Swap ([Frozen Heights](https://gamebanana.com/mods/150681)) - changes the GUI strawberry icon (now possible with [Maddie's Helping Hand](https://github.com/EverestAPI/ModResources/wiki/Helping-Hand-Extra-Features#reskinning-strawberries-in-menus))
 - [Celsius Fixer](https://gamebanana.com/mods/489392) - makes [Celsius by 0x0ade](https://drive.google.com/open?id=1PJzLFAC_d2ZCBh3Va3h2JNLreCxhkTiU) playable on Everest Core
 - [Display Message Command](https://gamebanana.com/mods/421935) - a mod that provides a simple command that displays arbitrary text on-screen, in the same style as the strawberry counter
