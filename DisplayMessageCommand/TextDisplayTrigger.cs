@@ -12,6 +12,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
         private readonly float duration;
         private readonly bool onlyOnce;
         private readonly Color fillColor;
+        private readonly bool useRawDeltaTime;
 
         public TextDisplayTrigger(EntityData data, Vector2 levelOffset) : base(data, levelOffset) {
             id = data.Attr("textID");
@@ -22,10 +23,11 @@ namespace Celeste.Mod.DisplayMessageCommand {
             duration = data.Float("duration");
             onlyOnce = data.Bool("onlyOnce");
             fillColor = data.HexColor("fillColor", Color.White);
+            useRawDeltaTime = data.Bool("useRawDeltaTime");
         }
 
         public override void OnEnter(Player p) {
-            TextDisplayInLevel.displayMessageCommand(id, scale, y, isLeft, text, duration, fillColor);
+            TextDisplayInLevel.displayMessageCommand(id, scale, y, isLeft, text, duration, fillColor, useRawDeltaTime);
             if (onlyOnce) {
                 RemoveSelf();
             }

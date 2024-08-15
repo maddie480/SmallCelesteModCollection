@@ -12,7 +12,8 @@ text_trigger.placements = {
         isLeft = false,
         duration = 0.0,
         onlyOnce = true,
-        fillColor = "FFFFFF"
+        fillColor = "FFFFFF",
+        useRawDeltaTime = false
     }
 }
 

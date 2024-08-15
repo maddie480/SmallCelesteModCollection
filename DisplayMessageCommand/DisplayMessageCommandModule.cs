@@ -32,7 +32,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
         }
 
         private static void customParseDisplayMessageCommandTAS(Action<string[], string> orig, string[] arguments, string commandText) {
-            if (arguments[0] == "display_message") {
+            if (arguments[0] == "display_message" || arguments[0] == "display_message_rawdeltatime") {
                 arguments = commandText.Substring(8).Split(new char[] { ' ' }, 6, StringSplitOptions.RemoveEmptyEntries);
             }
 
@@ -46,7 +46,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
         }
 
         private static void customParseDisplayMessageCommandConsole(On.Monocle.Commands.orig_ExecuteCommand orig, Monocle.Commands self, string command, string[] args) {
-            if (commandHolder != null && command == "display_message") {
+            if (commandHolder != null && (command == "display_message" || command == "display_message_rawdeltatime")) {
                 string[] split = commandHolder.Split(new char[] { ' ' }, 6, StringSplitOptions.RemoveEmptyEntries);
 
                 args = new string[split.Length - 1];

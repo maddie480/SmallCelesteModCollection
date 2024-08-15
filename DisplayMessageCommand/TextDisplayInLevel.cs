@@ -14,18 +14,20 @@ namespace Celeste.Mod.DisplayMessageCommand {
         private readonly float verticalScale;
         private readonly bool isLeft;
         private readonly Color fillColor;
+        private readonly bool useRawDeltaTime;
 
         private readonly float xIn;
         private readonly float xOut;
 
         private MTexture bg = GFX.Gui["DisplayMessageCommand/extendedStrawberryCountBG"];
 
-        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, float duration, Color fillColor) {
+        public TextDisplayInLevel(string id, string text, float scale, float y, bool isLeft, float duration, Color fillColor, bool useRawDeltaTime) {
             this.id = id;
             this.text = text;
             this.scale = scale;
             this.isLeft = isLeft;
             this.fillColor = fillColor;
+            this.useRawDeltaTime = useRawDeltaTime;
 
             textDisplays[id] = this;
 
@@ -39,6 +41,7 @@ namespace Celeste.Mod.DisplayMessageCommand {
             Position = new Vector2(xOut, y);
 
             Tween tween = Tween.Create(Tween.TweenMode.Oneshot, Ease.SineOut, 0.5f, true);
+            tween.UseRawDeltaTime = useRawDeltaTime;
             tween.OnUpdate = t => Position.X = Calc.ClampedMap(t.Eased, 0, 1, xOut, xIn);
             Add(tween);
 
@@ -81,22 +84,28 @@ namespace Celeste.Mod.DisplayMessageCommand {
 
         private void transitionOut() {
             Tween tween = Tween.Create(Tween.TweenMode.Oneshot, Ease.SineIn, 0.5f, true);
+            tween.UseRawDeltaTime = useRawDeltaTime;
             tween.OnUpdate = t => Position.X = Calc.ClampedMap(t.Eased, 0, 1, xIn, xOut);
             tween.OnComplete = t => RemoveSelf();
             Add(tween);
         }
 
-        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration, Color fillColor) {
+        internal static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text, float duration, Color fillColor, bool useRawDeltaTime) {
             if (textDisplays.TryGetValue(id, out TextDisplayInLevel existingMessage)) {
                 existingMessage.transitionOut();
             }
 
-            Engine.Scene.Add(new TextDisplayInLevel(id, text.Replace("\\n", "\n"), scale, y, isLeft, duration, fillColor));
+            Engine.Scene.Add(new TextDisplayInLevel(id, text.Replace("\\n", "\n"), scale, y, isLeft, duration, fillColor, useRawDeltaTime));
         }
 
         [Command("display_message", "Displays a message on a screen border")]
         private static void displayMessageCommand(string id, float scale, float y, bool isLeft, string text) {
-            displayMessageCommand(id, scale, y, isLeft, text, 0f, Color.White);
+            displayMessageCommand(id, scale, y, isLeft, text, 0f, Color.White, useRawDeltaTime: false);
+        }
+
+        [Command("display_message_rawdeltatime", "Displays a message on a screen border, ignoring the current game speed")]
+        private static void displayMessageCommandRawDeltaTime(string id, float scale, float y, bool isLeft, string text) {
+            displayMessageCommand(id, scale, y, isLeft, text, 0f, Color.White, useRawDeltaTime: true);
         }
 
         [Command("hide_message", "Hide a previously displayed message")]

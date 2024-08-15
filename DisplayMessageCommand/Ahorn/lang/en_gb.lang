@@ -7,3 +7,4 @@ placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.isLeft=Whe
 placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.duration=After how many seconds the text should be removed.\nUse 0 to let it stay indefinitely.
 placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.onlyOnce=Whether the text should only be displayed once, until the player dies or changes rooms.
 placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.fillColor=The color of the displayed text.
+placements.triggers.DisplayMessageCommand/TextDisplayTrigger.tooltips.useRawDeltaTime=If enabled, the text animations will ignore the current game speed.
