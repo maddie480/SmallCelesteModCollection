@@ -25,8 +25,6 @@ jobs:
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 2.2.108
 
     - name: Build all mods
       if: github.ref == 'refs/heads/main'
@@ -37,8 +35,7 @@ jobs:
         for ZIPNAME in AroxonBerry BadelineHairDye BloomCommand CabobBerrySwap CelsiusFixer CrabbingAntidote Crabinator DisplayMessageCommand DonkerBerrySwap DonkerCassetteSongSwap DonkerJellies EventMode FullClearStamp GoldenBirdInJournal IronSmelteryCampaign LifeOnTheMoon MadelineBrownHair MagiCustomizableChapter1Ending NolzCustomHairColor ProBananaSkin ReverseFancyTextArabic ReverseFancyTextHebrew SafeRespawnCrumble SeekerCH6Cutscene ShirbSleepTeleport WolfyOneDashHairColorMod
         do
           cd $ZIPNAME
-          dotnet restore
-          msbuild *.sln "/p:Configuration=Release"
+          dotnet build --configuration Release *.sln
           ZIPNAME=$ZIPNAME-${GITHUB_SHA:0:8}.zip
           zip -qq -r $ZIPNAME everest.yaml bin/Release/net452 Ahorn Dialog Graphics Loenn
           curl -H 'Content-Type: multipart/form-data' -X POST -F "file=@$ZIPNAME" "$DISCORD_WEBHOOK"
